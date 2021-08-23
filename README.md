@@ -23,9 +23,17 @@ Este proceso se hará en varias fases:
     ```bash
     root@linuxito:~/github/sysstatgraph# git remote add upstream https://github.com/magnetikonline/sysstatgraph.git
     ```
-    2.3. Finalmente traemos las últimas actualizaciones del github original a nuestro github bifurcado.
+    2.3. De esta forma nuestro repositorio local estará conectado con nuestro fork (origin) y también con el proyecto original (upstream) como puede verse en:
+    ```
+    git remote -v
+    ```
+    2.4. Finalmente traemos las últimas actualizaciones del github original a nuestro github bifurcado local.
     ```bash
     git pull upstream master
+    ```
+    2.5. Ahora podemos también actualizar nuestro proyecto bifurcado en Github (origin)
+    ```bash
+    git push origin master
     ```
 
 El trabajo original es de [linuxito](https://www.linuxito.com/programacion/890-como-mantener-tu-fork-sincronizado-con-upstream-en-git)

@@ -41,7 +41,7 @@ function clonando_repos()
 {
 	tput civis
 	# GitHub Repo clones
-	echo -e "${gray}*****  Instalación de repositorios GitHub  *****${end}"
+	echo -e "${gray}*****  Instalación de repositorios GitHub Bifurcados  *****${end}"
 	declare -a repos_fork=( \
 	    miguelns21/AmatheraeWorld \
 	)
@@ -50,7 +50,6 @@ function clonando_repos()
 	do
 		echo -ne "\n${yellow}[*]${endC}${blue} Repositorio ${end}${purple} $repo${end}${blue}...${end}"
 		
-		sudo rm -rf $githome/$(echo $repo | awk -F '/' '{print $NF}') 
 		sudo git clone https://github.com/$repo $githome/$(echo $repo | awk -F '/' '{print $NF}') > /dev/null 2>&1
 		
 		if [ "$(echo $?)" == "0" ]; then
@@ -64,8 +63,7 @@ function clonando_repos()
 function conectando_repos()
 {
 	tput civis
-	# GitHub Repo clones
-	echo -e "${gray}*****  Conexión de repositorios Originales con Locales y GitHub personal  *****${end}"
+	# GitHub Repo Originales
 	declare -a repos_fork=( \
 	    AmatheraeWorld/AmatheraeWorld \
 	)
@@ -75,14 +73,32 @@ function conectando_repos()
 		echo -ne "\n${yellow}[*]${endC}${blue} Repositorio ${end}${purple} $repo${end}${blue}...${end}"
 		
 		cd $githome/$(echo $repo | awk -F '/' '{print $NF}')
+	
+		echo -e "${gray}*****  Conexión de repositorios locales con remoto original (upstream)  *****${end}"
 		sudo git remote add upstream  https://github.com/$repo > /dev/null 2>&1
-		sudo git pull upstream master > /dev/null 2>&1
-		
 		if [ "$(echo $?)" == "0" ]; then
 			echo -e " ${green}(V)${end}"
 		else
 			echo -e " ${red}(X)${end}\n"
 		fi; sleep 1
+		
+		echo -e "${gray}*****  Actualización de repositorios original (upstream) con local (master)  *****${end}"
+		sudo git pull upstream master > /dev/null 2>&1
+		if [ "$(echo $?)" == "0" ]; then
+			echo -e " ${green}(V)${end}"
+		else
+			echo -e " ${red}(X)${end}\n"
+		fi; sleep 1
+		
+		echo -e "${gray}*****  Actualización de repositorios local (master) con remoto Github (origin)  *****${end}"
+		sudo git push origin master > /dev/null 2>&1
+		if [ "$(echo $?)" == "0" ]; then
+			echo -e " ${green}(V)${end}"
+		else
+			echo -e " ${red}(X)${end}\n"
+		fi; sleep 1
+		
+
 	done
 }
 
