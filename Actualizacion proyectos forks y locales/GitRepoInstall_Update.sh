@@ -87,7 +87,7 @@ function conectando_repos()
 
 
 if [ "$(id -u)" == "0" ]; then  #Comprobamos si somos usuario root
-	clear; banner; echo;
+	clear; echo;
 	echo -e "\n${red}[*] Este script instalará herramientas en el perfil de usuario actual.${end}\n"
 	echo -e "${red}[*] Por favor, logeese como un usuario NO root para la correcta instalación.${end}\n"
 	echo -e "${red}[*] El script le solicitará la clave root cuando sea necesario.${end}\n"
