@@ -37,7 +37,6 @@ function press_key(){
 
 echo -ne "\n${yellow}[*]${endC}${blue} Instalación ${end}${purple}AmatheraeWorld ${end}${blue}...${end}"
 
-
 git pull
 cd /opt
 
