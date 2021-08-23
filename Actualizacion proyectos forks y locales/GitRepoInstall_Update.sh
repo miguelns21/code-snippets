@@ -75,8 +75,8 @@ function conectando_repos()
 		echo -ne "\n${yellow}[*]${endC}${blue} Repositorio ${end}${purple} $repo${end}${blue}...${end}"
 		
 		cd $githome/$(echo $repo | awk -F '/' '{print $NF}')
-		sudo git remote add upstream  https://github.com/$repo
-		sudo git pull upstream master
+		sudo git remote add upstream  https://github.com/$repo > /dev/null 2>&1
+		sudo git pull upstream master > /dev/null 2>&1
 		
 		if [ "$(echo $?)" == "0" ]; then
 			echo -e " ${green}(V)${end}"
