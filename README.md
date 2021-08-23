@@ -18,12 +18,13 @@ Este proceso se hará en varias fases:
     remote: Counting objects: 24, done.
     remote: Total 24 (delta 0), reused 0 (delta 0), pack-reused 24
     Unpacking objects: 100% (24/24), done.
-    ```bash 
-    2.2. Conectar el proyecto de la página github original del proyecto con nuestra copia local
-    ```root@linuxito:~/github/sysstatgraph# git remote add upstream https://github.com/magnetikonline/sysstatgraph.git
+    ```
+    2.2. Conectar el proyecto de la página github original del proyecto con nuestra copia local.
+    ```bash
+    root@linuxito:~/github/sysstatgraph# git remote add upstream https://github.com/magnetikonline/sysstatgraph.git
     ```
     2.3. Finalmente traemos las últimas actualizaciones del github original a nuestro github bifurcado.
-    ```
+    ```bash
     git pull upstream master
     ```
 
