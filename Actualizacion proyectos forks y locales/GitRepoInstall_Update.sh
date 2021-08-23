@@ -50,7 +50,8 @@ function clonando_repos()
 	do
 		echo -ne "\n${yellow}[*]${endC}${blue} Repositorio ${end}${purple} $repo${end}${blue}...${end}"
 		
-		git clone https://github.com/$repo $githome/$(echo $repo | awk -F '/' '{print $NF}') > /dev/null 2>&1
+		sudo rm -rf $githome/$(echo $repo | awk -F '/' '{print $NF}') 
+		sudo git clone https://github.com/$repo $githome/$(echo $repo | awk -F '/' '{print $NF}') > /dev/null 2>&1
 		
 		if [ "$(echo $?)" == "0" ]; then
 			echo -e " ${green}(V)${end}"
@@ -74,8 +75,8 @@ function conectando_repos()
 		echo -ne "\n${yellow}[*]${endC}${blue} Repositorio ${end}${purple} $repo${end}${blue}...${end}"
 		
 		cd $githome/$(echo $repo | awk -F '/' '{print $NF}')
-		git remote add upstream  https://github.com/$repo
-		git pull upstream master
+		sudo git remote add upstream  https://github.com/$repo
+		sudo git pull upstream master
 		
 		if [ "$(echo $?)" == "0" ]; then
 			echo -e " ${green}(V)${end}"
