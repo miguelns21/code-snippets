@@ -31,13 +31,19 @@ function checkV(){
 	fi; sleep 1
 }
 
+function press_key(){
+	echo -e "\n${red}[.] Presiona la tecla Enter para continuar...${end}" && read
+}
+
 echo -ne "\n${yellow}[*]${endC}${blue} Instalación ${end}${purple}AmatheraeWorld ${end}${blue}...${end}"
+
 
 git pull
 cd /opt
 
 git clone https://github.com/miguelns21/AmatheraeWorld.git ; cd AmatheraeWorld.git
 git remote add upstream https://github.com/AmatheraeWorld/AmatheraeWorld.git ; git pull upstream master
+
 checkV
 
 #cd /opt
