@@ -44,6 +44,7 @@ function clonando_repos()
 	echo -e "${gray}*****  Instalación de repositorios GitHub Bifurcados  *****${end}"
 	declare -a repos_fork=( \
 	    miguelns21/AmatheraeWorld \
+		miguelns21/linux-smart-enumeration \
 	)
 
 	for repo in ${repos_fork[@]}
@@ -66,11 +67,12 @@ function conectando_repos()
 	# GitHub Repo Originales
 	declare -a repos_fork=( \
 	    AmatheraeWorld/AmatheraeWorld \
+		diego-treitos/linux-smart-enumeration
 	)
 
 	for repo in ${repos_fork[@]}
 	do
-		echo -ne "\n${yellow}[*]${endC}${blue} Repositorio ${end}${purple} $repo${end}${blue}...${end}"
+		echo -ne "\n${yellow}[*]${endC}${blue} Repositorio ${end}${purple} $repo${end}${blue}...${end}\n"
 		
 		cd $githome/$(echo $repo | awk -F '/' '{print $NF}')
 	
@@ -90,13 +92,13 @@ function conectando_repos()
 			echo -e " ${red}(X)${end}\n"
 		fi; sleep 1
 		
-		echo -e "${gray}*****  Actualización de repositorios local (master) con remoto Github (origin)  *****${end}"
-		sudo git push origin master > /dev/null 2>&1
-		if [ "$(echo $?)" == "0" ]; then
-			echo -e " ${green}(V)${end}"
-		else
-			echo -e " ${red}(X)${end}\n"
-		fi; sleep 1
+		#echo -e "${gray}*****  Actualización de repositorios local (master) con remoto Github (origin)  *****${end}"
+		#sudo git push origin master > /dev/null 2>&1
+		#if [ "$(echo $?)" == "0" ]; then
+		#	echo -e " ${green}(V)${end}"
+		#else
+		#	echo -e " ${red}(X)${end}\n"
+		#fi; sleep 1
 		
 
 	done
