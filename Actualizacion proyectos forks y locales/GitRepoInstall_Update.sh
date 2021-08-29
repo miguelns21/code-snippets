@@ -45,6 +45,7 @@ function clonando_repos()
 	declare -a repos_fork=( \
 	    miguelns21/AmatheraeWorld \
 		miguelns21/linux-smart-enumeration \
+		miguelns21/SecLists
 	)
 
 	for repo in ${repos_fork[@]}
@@ -67,7 +68,8 @@ function conectando_repos()
 	# GitHub Repo Originales
 	declare -a repos_fork=( \
 	    AmatheraeWorld/AmatheraeWorld \
-		diego-treitos/linux-smart-enumeration
+		diego-treitos/linux-smart-enumeration \
+		danielmiessler/SecLists \
 	)
 
 	for repo in ${repos_fork[@]}
